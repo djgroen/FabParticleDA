@@ -52,7 +52,7 @@ def particleda_ensemble(config="dummy_test", **args):
 
 @task
 def install_particleda_dependencies():
-    for p in ["Distributions","GaussianRandomFields","HDF5","PDMats"]:
+    for p in ["Distributions","GaussianRandomFields","HDF5","PDMats", "FillArrays"]:
         cmdstr = f'import Pkg; Pkg.add("{p}")'
         local(f"julia -e '{cmdstr}'")
 
