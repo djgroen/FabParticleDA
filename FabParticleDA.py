@@ -31,7 +31,7 @@ def test_community_model(config="ParticleDA_test", model="llw2d.jl", **args):
     update_environment(args)
     path_to_config = find_config_file_path(config)
     with_config(config)
-    local("rm community_models/{}".format(model))
+    local("rm -rf {}/{}".format(path_to_config, model))
     local("cp community_models/{} {}".format(model,path_to_config))
     execute(put_configs, config)
     job(dict(script='test_community_model', wall_time='0:15:0', memory='2G'), args)
